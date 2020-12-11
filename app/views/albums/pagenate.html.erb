@@ -1,7 +1,0 @@
-<div calss="album_boxs"></div>
-<% @albums.each do | album | %>
-  <div calss="album_box">
-    <p><%= album["comment"] %></p>
-    <%= image_tag "#{album["image_url"]}" %>
-  </div>
-<% end %>
