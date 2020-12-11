@@ -3,8 +3,20 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
+
+// a文字色変更
+a{
+  color:#555;;
+  text-decoration: none;
+  cursor: pointer;
+}
+// div,form文字色変更
+div,input,select {
+  color: #555;
+}
+
 .wrapper {
-  background-color: antiquewhite;
+  background-color: #F4F4F4;
   padding: 50px 0 ;
   min-height: 100vh;
   .wrapper_inner {
@@ -13,20 +25,48 @@
     .inner_title {
       font-size: 30px;
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .inner_search_bar {
+      margin: 10px 0;
+      .search_bar_title {
+        margin-bottom: 5px;
+      }
+      input {
+        padding: 5px 10px;
+      }
+      select {
+        padding: 5px 10px;
+        height: 38px;
+        width: 209px;
+      }
+    }
+    .inner_data {
+      text-align: right;
+      display: block;
+      span {
+        font-size: 18px;
+      }
     }
     .album_boxs {
       display: flex;
       flex-wrap: wrap;
       .album_box {
-        width: 30%;
+        width: 33%;
         padding: 20px;
+        .album_data {
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
         .album_image {
           width: 250px;
           height: 250px;
           border-radius: 10px;
         }
+        .album_comment {
+          margin: 10px 0 ;
+        }
       }
     }
-
   }
 }

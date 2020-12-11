@@ -2,24 +2,33 @@
   .wrapper_inner
     .inner_title
       =link_to "あなたの料理アルバム",root_path
-    .inner_album_count あなたの記録数: #{@albums_data[:total]}
+    .inner_album_count すべての記録数: #{@albums_data[:total]}
     .inner_search_bar
+      .search_bar_title レシピの種類を検索できます
       = form_with url: search_type_albums_path,method: :get,local: true do |f|
         =f.select :type,[["主菜","main_dish"],["副菜","side_dish"],["スープ","soup"]],include_blank: "選択してください"
         = f.submit '検索'
-
+    .inner_search_bar
+      .search_bar_title キーワード検索
       = form_with url: search_word_albums_path,method: :get,local: true do |f|
-        = f.text_field :word,placeholder: "検索したい文字を入力してください"
+        = f.text_field :word,placeholder: "テキストを入力"
         = f.submit '検索'
 
     .inner_pagenate 
       - if @albums.size > 50
-        = link_to "51~100",pagenate_albums_path(offset: 51, limit: 50),method: :get  
+        = link_to "51~100",pagenate_albums_path(offset: 51, limit: 50),method: :get
 
-    .album_boxs
-      - @albums.each do | album |
-        .album_box
-          = image_tag "#{album[:image_url]}",class: "album_image"
-          %p= album[:comment]
-          -# %p= album[:recipe_type]
-          %time(datetime="#{album[:recorded_at]}")= time_ago_in_words(album[:recorded_at])
+    .inner_data
+      %span #{@albums.size}
+      件表示
+    - if @albums.present?
+      .album_boxs
+        - @albums.each do | album |
+          .album_box
+            .album_data #{album[:recorded_at]}
+            = image_tag "#{album[:image_url]}",class: "album_image"
+            .album_comment= album[:comment]
+    - else
+      .no_albums_message 投稿はありません。
+    
+    =link_to "トップページへ戻る",root_path,class: "inner_data"
