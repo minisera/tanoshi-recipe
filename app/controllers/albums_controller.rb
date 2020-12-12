@@ -17,7 +17,7 @@ before_action :set_album_data
     @albums = Album.pagenate(params[:offset],params[:limit])
   end
   
-  private
+private
   
   def set_album_data
     @albums_data = Album.index[:pagination]

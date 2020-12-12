@@ -1,5 +1,6 @@
 class Album < ApplicationRecord
 
+  # トップページ
   def self.index
     data = {offset: 0,limit: 50}
     set_recipe_data(data)
@@ -23,7 +24,7 @@ class Album < ApplicationRecord
     result[:cooking_records]
   end
 
-  private
+private
   
   # 外部APIから、JSONを取得しハッシュを返す
   def self.set_recipe_data(data)
@@ -33,7 +34,7 @@ class Album < ApplicationRecord
     JSON.parse(json,symbolize_names: true)
   end
   
-  # 現在のアルバムの合計数を返す
+  # 現在の記録数の合計を返す
   def self.count_total
     uri = URI.parse("https://cooking-records.herokuapp.com/cooking_records")
     json = Net::HTTP.get(uri)

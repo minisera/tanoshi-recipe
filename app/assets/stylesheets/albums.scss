@@ -6,15 +6,20 @@
 
 // a文字色変更
 a{
-  color:#555;;
+  color:#555;
   text-decoration: none;
   cursor: pointer;
+  &:hover {
+    color:#c0c0c0;
+  }
 }
+
 // div,form文字色変更
 div,input,select {
   color: #555;
 }
 
+// トップページ
 .wrapper {
   background-color: #F4F4F4;
   padding: 50px 0 ;
