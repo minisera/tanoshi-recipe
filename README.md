@@ -1,24 +1,20 @@
-# README
+# はじめに
+今回は選考に進ませて頂きありがとうございます！！  
+技術課題に回答しましたので、恐縮ですが、課題レビューをお願い致します。  
+なお、プロトタイプの設計資料は添付してあるPDFを御覧くださいませ。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 開発環境
+* Ruby 2.6.6
+* Rails 6.0.0
+* macOS Catalina 10.15.7
 
-Things you may want to cover:
+# 起動するにあたり
+お忙しい中恐縮ですが、起動するにあたり、以下の手順にてお進みください。
 
-* Ruby version
+1. 解凍後、`tanoshi-recipe`ディレクトリに移動します。
+2. `bundle install`をします。
+3. `rails db:create`をします。
+4. `rails s`をします。
+5. Google Chromeにて`http://localhost:3000`にアクセスします。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+それでは、よろしくお願い致します。
