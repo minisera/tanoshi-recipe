@@ -6,26 +6,26 @@ class Album < ApplicationRecord
   end
   
   def self.search_type(type)
-    data = {offset: 0,limit: total_count}
+    data = {offset: 0,limit: count_total}
     result = set_recipe_data(data)
-    return result[:cooking_records].select{|x| x[:recipe_type] == type}
+    result[:cooking_records].select{|x| x[:recipe_type] == type}
   end
   
   def self.search_word(word)
-    data = {offset: 0,limit: total_count}
+    data = {offset: 0,limit: count_total}
     result = set_recipe_data(data)
-    return result[:cooking_records].select{|x| x[:comment].include?(word)}
+    result[:cooking_records].select{|x| x[:comment].include?(word)}
   end
   
   def self.pagenate(offset,limit)
     data = {offset: offset,limit: limit}
     result = set_recipe_data(data)
-    return result[:cooking_records]
+    result[:cooking_records]
   end
 
   private
   
-  # APIから、JSONを取得しハッシュに置き換える
+  # 外部APIから、JSONを取得しハッシュを返す
   def self.set_recipe_data(data)
     query = data.to_query
     uri = URI.parse("https://cooking-records.herokuapp.com/cooking_records?"+query)
@@ -33,8 +33,8 @@ class Album < ApplicationRecord
     JSON.parse(json,symbolize_names: true)
   end
   
-  # 現在のアルバムの合計を返す
-  def self.total_count
+  # 現在のアルバムの合計数を返す
+  def self.count_total
     uri = URI.parse("https://cooking-records.herokuapp.com/cooking_records")
     json = Net::HTTP.get(uri)
     result = JSON.parse(json,symbolize_names: true)

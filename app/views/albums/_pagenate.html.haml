@@ -1,0 +1,7 @@
+.inner_data
+  -# オフセットが0より多ければ表示
+  - if params[:offset].to_i > 0
+    = link_to "< 前ページ",pagenate_albums_path(offset: params[:offset].to_i-50, limit: 50),method: :get
+  -# 表示件数が50以上ある場合、次項表示
+  - if albums.size >= 50
+    = link_to "次ページ >",pagenate_albums_path(offset: params[:offset].to_i+50, limit: 50),method: :get
