@@ -1,8 +1,7 @@
 class AlbumsController < ApplicationController
-before_action :set_album_data
 
   def index
-    @albums = Album.index[:cooking_records]
+    @albums = Album.index
   end
   
   def search_type
@@ -16,11 +15,8 @@ before_action :set_album_data
   def pagenate
     @albums = Album.pagenate(params[:offset],params[:limit])
   end
-  
-private
-  
-  def set_album_data
-    @albums_data = Album.index[:pagination]
+
+  def show
   end
 
 end

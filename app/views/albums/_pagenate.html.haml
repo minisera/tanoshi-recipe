@@ -1,4 +1,4 @@
-.inner_data
+.inner_data_right
   -# オフセットが0より多い場合、"前項へ"表示
   - if params[:offset].to_i > 0
     = link_to "< 前ページ",pagenate_albums_path(offset: params[:offset].to_i-50, limit: 50),method: :get
