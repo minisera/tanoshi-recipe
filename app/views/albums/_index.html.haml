@@ -2,7 +2,7 @@
   .wrapper_inner
     .inner_title
       =link_to "料理記録アルバム",root_path
-    .inner_album_count すべての記録数: #{@albums_data[:total]}
+    .inner_data_left すべての記録数: #{@albums_data[:total]}
 
     .inner_search_bar
       .search_bar_title レシピの種類を検索できます
@@ -17,6 +17,14 @@
         = f.submit '検索'
 
     = render partial: "pagenate",locals: {albums: @albums}
+
+    .inner_data_left
+      = link_to "https://twitter.com/share?url=#{request.url}/&text=私の料理記録アルバムです！", title: 'Twitter', target: '_blank' do
+        = fa_icon "twitter-square"
+        %span シェアする
+      -# 無効なURLになっています
+      .fb-share-button{"data-href" => "#", "data-layout" => "button", "data-size" => "small"}
+
 
     .inner_data
       %span #{@albums.size}

@@ -32,6 +32,17 @@ div,input,select {
       text-align: center;
       margin-bottom: 10px;
     }
+    .inner_data_left {
+      display: flex;
+      align-items: center;
+      a{
+        padding-right: 10px;
+        i {
+          font-size: 20px;
+          color: #20A1F1;
+        }
+      }
+    }
     .inner_search_bar {
       margin: 10px 0;
       .search_bar_title {

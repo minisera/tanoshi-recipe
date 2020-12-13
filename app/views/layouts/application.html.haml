@@ -7,5 +7,7 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    #fb-root
+    %script{:async => "", :crossorigin => "anonymous", :defer => "defer", :nonce => "urv9fjqF", :src => "https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"}
   %body
     = yield
